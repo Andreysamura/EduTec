@@ -1,0 +1,44 @@
+{% extends "layouts/base-fullscreen.html" %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div>
+    <h3>Login</h3>
+    
+    {% if msg %}
+        <span style="color: red;">{{ msg | safe }}</span>
+    {% else %}
+        <span>Add your credentials</span>
+    {% endif %}
+
+    <form role="form" method="post" action="">
+        {{ form.hidden_tag() }}
+        
+        <div>
+            <label for="username">Username or eMail</label>
+            <input type="text" name="username" placeholder="Username or eMail" title="Enter your username or email">
+        </div>
+        
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password" title="Enter your password">
+        </div>
+        
+        <button type="submit" name="login">Login</button>
+    </form>
+
+    <p>
+        Forgot your password? <a href="{{ url_for('authentication_blueprint.forgot_password') }}">Reset it</a>
+    </p>
+
+    <p>
+        Don’t have an account? <a href="{{ url_for('authentication_blueprint.register') }}">Sign UP</a>
+    </p>
+    
+    {% if config.SOCIAL_AUTH_GITHUB %}
+        <div>
+            <a href="{{ url_for('authentication_blueprint.login_github') }}">Sign IN with GitHub</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

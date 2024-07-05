@@ -1,0 +1,86 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<!-- Incluir el CSS del carrusel de Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<!-- Incluir el JavaScript del carrusel de Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .carousel-container {
+            max-width: 600px; /* Ajusta el tamaño máximo según tus necesidades */
+            margin: 0 auto; /* Centra el carrusel horizontalmente */
+        }
+
+        .collapse-button-container {
+            max-width: 600px; /* Ajusta el tamaño máximo del botón de colapso según tus necesidades */
+            margin: 0 auto; /* Centra el botón de colapso horizontalmente */
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="carousel-container">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    {% for image in slider_images %}
+                                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                            <img src="{{ url_for('static', filename='assets/images/slider/' + image) }}" class="d-block w-100" alt="Slide">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- [ Main Content ] end -->
+                        
+                        <!-- Botón de colapso para mostrar una imagen -->
+                        <div class="collapse-button-container">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseImage" aria-expanded="false" aria-controls="collapseImage">
+                                Ver imagen
+                            </button>
+                            <div class="collapse" id="collapseImage">
+                                <div class="card card-body">
+                                    <img src="{{ url_for('static', filename='assets/images/slider/' + collapse_images[0][1]) }}" alt="Slide">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin del botón de colapso -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ Main Content ] end -->  
+
+
+{% endblock content %}
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+{% endblock javascripts %}
