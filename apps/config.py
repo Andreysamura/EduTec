@@ -29,7 +29,7 @@ class Config(object):
     DB_ENGINE = 'mysql'
     DB_USERNAME = os.getenv('DB_USERNAME', 'root')
     DB_PASS = os.getenv('DB_PASS', 'VfooWpTHzoSisQxakVLHSBijpzuFnEKA')
-    DB_HOST = os.getenv('DB_HOST', 'hviaduct.proxy.rlwy.net')
+    DB_HOST = os.getenv('DB_HOST', 'viaduct.proxy.rlwy.net')
     DB_PORT = os.getenv('DB_PORT', '57378')
     DB_NAME = os.getenv('DB_NAME', 'integradora')
 
