@@ -28,9 +28,9 @@ class Config(object):
     # Database Configuration
     DB_ENGINE = 'mysql'
     DB_USERNAME = os.getenv('DB_USERNAME', 'root')
-    DB_PASS = os.getenv('DB_PASS', 'TKNPWqhJVmFcdzGtTdvWlVOIukFnZCfU')
-    DB_HOST = os.getenv('DB_HOST', 'viaduct.proxy.rlwy.net')
-    DB_PORT = os.getenv('DB_PORT', '47166')
+    DB_PASS = os.getenv('DB_PASS', 'VfooWpTHzoSisQxakVLHSBijpzuFnEKA')
+    DB_HOST = os.getenv('DB_HOST', 'hviaduct.proxy.rlwy.net')
+    DB_PORT = os.getenv('DB_PORT', '57378')
     DB_NAME = os.getenv('DB_NAME', 'integradora')
 
     SQLALCHEMY_DATABASE_URI = f"{DB_ENGINE}://{DB_USERNAME}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
